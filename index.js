@@ -190,14 +190,22 @@ let myObject = {
   return this;
 },
   // Оголошення методу "next" для ітерації
-next() {currentIndex < category}
+  next() {
   // Створюємо логічний оператор який буде перевіряти чи властивість об'єкту currentIndex менша ніж довжина масиву category
+  if (this.currentIndex < this.category.length) {
   //Створюємо змінну value якій присвоємо властивість name елемента масиву category з індексом currentIndex
+  let value = this.category[this.currentIndex].name;
   
   // Збільшимо currentIndex на одиницю
+  this.currentIndex++;
  
   // Повертаємо об'єкт з властивістю value значенням якої буде value,та прапорцем done: false
+  return { value, done: false };
+} else {
   //Якщо властивість об'єкту currentIndex більше або дорівнює довжині масиву category повертаємо об'єкт з прапорцем done: true, коли ітерація закінчена
+  return { done: true };
+}
+}
 };
 
 console.log("Завдання 10 ====================================");
